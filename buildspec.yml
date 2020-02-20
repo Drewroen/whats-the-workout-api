@@ -1,10 +1,20 @@
 version: 0.2
+
 phases:
   install:
     commands:
-      - npm install
-      - npm test
+    - npm install --silent --no-progress -g npm
+    - npm install --silent --no-progress -g serverless
+  pre_build:
+    commands:
+    - npm install --silent --no-progress
+  build:
+    commands:
+    - mkdir target/prod
+    - serverless package --package target/prod --stage prod -v -r us-east-2
+
 artifacts:
   files:
-    - appspec.YAML
-  discard-paths: yes
+  - target/**/*
+  - serverless.yml
+  - deploy.sh
