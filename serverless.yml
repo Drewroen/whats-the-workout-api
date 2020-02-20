@@ -1,4 +1,6 @@
 service: whats-the-workout-api
+plugins:
+  - serverless-plugin-cicd
 
 provider:
   name: aws
