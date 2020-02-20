@@ -6,5 +6,5 @@ phases:
       - npm test
 artifacts:
   files:
-    - appspec.json
+    - appspec.YAML
   discard-paths: yes
