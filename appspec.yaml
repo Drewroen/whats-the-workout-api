@@ -1,10 +1,10 @@
 version: 0.0
 Resources:
-  - myLambdaFunction:
+  - whats-the-workout-api-prod-app:
       Type: AWS::Lambda::Function
       Properties:
-        Name: "myLambdaFunction"
-        Alias: "myLambdaFunctionAlias"
+        Name: "whats-the-workout-api-prod-app"
+        Alias: "whats-the-workout-api-prod-app"
         CurrentVersion: "1"
         TargetVersion: "2"
 Hooks:
