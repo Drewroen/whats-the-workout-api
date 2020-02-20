@@ -1,4 +1,6 @@
 service: whats-the-workout-api
+plugins:
+  - serverless-domain-manager
 
 provider:
   name: aws
@@ -12,3 +14,10 @@ functions:
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
+
+custom:
+  customDomain:
+    domainName: api.whatstheworkout.com
+    basePath: ''
+    stage: prod
+    createRoute53Record: true      
