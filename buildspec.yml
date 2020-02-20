@@ -4,3 +4,7 @@ phases:
     commands:
       - npm install
       - npm test
+artifacts:
+  files:
+    - appspec.yaml
+  discard-paths: yes
