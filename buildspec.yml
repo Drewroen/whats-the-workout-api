@@ -10,7 +10,7 @@ phases:
     - npm install --silent --no-progress
   build:
     commands:
-    - mkdir target/prod
+    - mkdir -p target/prod
     - serverless package --package target/prod --stage prod -v -r us-east-2
 
 artifacts:
