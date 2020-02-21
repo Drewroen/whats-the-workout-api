@@ -26,12 +26,18 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('/', function (req, res) {
-  res.send({message: 'The API is working'})
+app.get('/ping', function (req, res) {
+  var pingResponse = {
+    message: 'The service is healthy'
+  }
+  res.send(pingResponse.json())
 });
 
-app.get('/hello-world', checkJwt, function (req, res) {
-  res.send('Hello World! (Only if you are logged in')
+app.get('/ping-auth', checkJwt, function (req, res) {
+  var pingResponse = {
+    message: 'The service is healthy. You are logged in'
+  }
+  res.send(pingResponse.json())
 });
 
 //app.listen(3000, () => console.log(`Listening on: 3000`));
