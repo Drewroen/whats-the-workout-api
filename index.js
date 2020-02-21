@@ -26,14 +26,14 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('/ping', function (req, res) {
+app.get('/xping', function (req, res) {
   var pingResponse = {
     message: 'The service is healthy'
   }
   res.send(pingResponse)
 });
 
-app.get('/ping-auth', checkJwt, function (req, res) {
+app.get('/xping-auth', checkJwt, function (req, res) {
   var pingResponse = {
     message: 'The service is healthy. You are logged in'
   }
