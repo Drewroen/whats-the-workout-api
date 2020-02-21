@@ -30,14 +30,14 @@ app.get('/ping', function (req, res) {
   var pingResponse = {
     message: 'The service is healthy'
   }
-  res.send(pingResponse.json())
+  res.send(pingResponse)
 });
 
 app.get('/ping-auth', checkJwt, function (req, res) {
   var pingResponse = {
     message: 'The service is healthy. You are logged in'
   }
-  res.send(pingResponse.json())
+  res.send(pingResponse)
 });
 
 //app.listen(3000, () => console.log(`Listening on: 3000`));
