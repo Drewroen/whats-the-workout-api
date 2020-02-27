@@ -3,17 +3,17 @@ var mongoose = require('mongoose');
 var WorkoutSchema = new mongoose.Schema({
     workoutId: {
         type: String,
-        required: false
+        required: true
     },
     userId: {
         type: String,
-        required: false
+        required: true
     },
     name: {
         type: String,
-        required: false
+        required: true
     },
-    details: {
+    description: {
         type: String,
         required: false
     }

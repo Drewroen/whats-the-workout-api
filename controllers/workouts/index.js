@@ -2,6 +2,7 @@ var router = require('express').Router();
 var auth = require('../../utils/auth');
 var mongoose = require('mongoose');
 var WorkoutModel = mongoose.model('Workout')
+var uuidv4 = require('uuid/v4');
 
 router.get('/', auth, async function (req, res, next) {
   const workouts = await WorkoutModel.find({});
@@ -13,13 +14,13 @@ router.get('/', auth, async function (req, res, next) {
 });
   
 router.post('/', auth, async function (req, res, next) {
-  const workout = new WorkoutModel({
-    workoutId: "bla",
-    userId: "bla",
-    name: "Workout",
-    details: "BLA"
-  });
   try {
+    const workout = new WorkoutModel({
+      workoutId: uuidv4(),
+      userId: req.user.sub,
+      name: req.body.name,
+      description: req.body.description
+    });
     await workout.save();
     return res.json(workout);
   } catch (err) {
