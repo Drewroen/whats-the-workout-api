@@ -19,6 +19,7 @@ mongooseConnection.connectToDatabase();
 
 // Loads models
 require('./models/workout');
+require('./models/user')
 
 // Loads controllers
 app.use(require('./controllers'));
