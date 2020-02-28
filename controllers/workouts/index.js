@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var WorkoutModel = mongoose.model('Workout')
 var uuidv4 = require('uuid/v4');
 
-router.get('/get-all-workouts', auth, async function (req, res, next) {
+router.get('/get-all-workouts', async function (req, res, next) {
   try {
     const workouts = await WorkoutModel.find({});
     return res.json(workouts);
