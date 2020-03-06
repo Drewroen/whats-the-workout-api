@@ -37,9 +37,13 @@ router.post('/create-workout', auth, async function (req, res, next) {
 router.patch('/update-workout', auth, async function (req, res, next) {
   try {
     var workout = await WorkoutModel.findOne({ 'workoutId' : req.query.workoutId });
-    workout.set(req.body);
-    await workout.save();
-    return res.json(workout);
+    if (req.user.sub === workout.userId) {
+      workout.set(req.body);
+      await workout.save();
+      return res.json(workout);
+    } else {
+      return res.status(400).json({ error: 'Not authorized to update this workout' });
+    }
   } catch (err) {
     return res.status(500).json(err);
   }
